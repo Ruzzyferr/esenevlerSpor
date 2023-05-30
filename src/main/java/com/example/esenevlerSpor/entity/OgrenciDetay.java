@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 @Data
@@ -15,21 +16,30 @@ public class OgrenciDetay {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    private String anneAdi;
+
+    private String anneTlf;
+
+    private String anneMeslek;
+
+    private String babaAdi;
+
+    private String babaTlf;
+
+    private String babaMeslek;
+
     private String uniformNumber;
 
     private String position;
 
-   private String team;
+    @ManyToOne
+    private Takim takim;
 
     private String league;
 
     @ManyToOne
-    private Kullanici anne;
+    private Kullanici veli;
 
-    @ManyToOne
-    private Kullanici baba;
-
-
-    @ManyToOne
-    private Files files;
+    @OneToMany
+    private List<Files> files;
 }

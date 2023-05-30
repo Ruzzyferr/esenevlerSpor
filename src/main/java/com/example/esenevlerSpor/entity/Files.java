@@ -1,6 +1,5 @@
 package com.example.esenevlerSpor.entity;
 
-import com.example.esenevlerSpor.enums.DosyaKategori;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,12 +13,12 @@ public class Files {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne
+    @ManyToOne
     private OgrenciDetay ogrenciId;
 
     private String name;
 
-    private DosyaKategori dosyaKategori;
+    private String dosyaKategori;
 
 
 }

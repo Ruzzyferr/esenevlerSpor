@@ -35,18 +35,6 @@ public class Kullanici {
     @Enumerated(EnumType.STRING)
     private Roles role;
 
-    private String anneAdi;
-
-    private String anneTlf;
-
-    private String anneMeslek;
-
-    private String babaAdi;
-
-    private String babaTlf;
-
-    private String babaMeslek;
-
     private String adres;
 
     @ManyToOne
