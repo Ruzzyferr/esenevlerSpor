@@ -13,6 +13,6 @@ public class FilesDto {
 
     private String name;
 
-    private DosyaKategori dosyaKategori;
+    private String dosyaKategori;
 
 }

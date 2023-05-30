@@ -33,7 +33,7 @@ public class KullaniciController {
     public ResponseEntity<LoginBackDto> login (@RequestBody LoginDto dto){
         LoginBackDto loginBackDto = kullaniciService.login(dto);
 
-        if(loginBackDto.getId() == 0) loginBackDto = adminService.login(dto);
+        //if(loginBackDto.getId() == 0) loginBackDto = adminService.login(dto);
 
         return new ResponseEntity<>(loginBackDto, HttpStatus.OK);
     }
