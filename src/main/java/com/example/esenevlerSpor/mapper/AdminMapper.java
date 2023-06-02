@@ -2,7 +2,6 @@ package com.example.esenevlerSpor.mapper;
 
 import com.example.esenevlerSpor.dto.AdminDto;
 import com.example.esenevlerSpor.dto.AdminSaveRequestDto;
-import com.example.esenevlerSpor.dto.KullaniciSaveRequestDTO;
 import com.example.esenevlerSpor.dto.LoginBackDto;
 import com.example.esenevlerSpor.entity.Admin;
 import org.mapstruct.Mapper;

@@ -6,7 +6,6 @@ import com.example.esenevlerSpor.dto.AdminSaveRequestDto;
 import com.example.esenevlerSpor.dto.LoginBackDto;
 import com.example.esenevlerSpor.dto.LoginDto;
 import com.example.esenevlerSpor.entity.Admin;
-import com.example.esenevlerSpor.entity.Kullanici;
 import com.example.esenevlerSpor.mapper.AdminMapper;
 import com.example.esenevlerSpor.util.Encryptor;
 import com.example.esenevlerSpor.util.PasswordGenerator;
