@@ -6,16 +6,10 @@ import com.example.esenevlerSpor.dto.KullaniciSaveRequestDTO;
 import com.example.esenevlerSpor.dto.LoginBackDto;
 import com.example.esenevlerSpor.dto.LoginDto;
 import com.example.esenevlerSpor.entity.Kullanici;
-import com.example.esenevlerSpor.enums.Roles;
 import com.example.esenevlerSpor.mapper.KullaniciMapper;
 import com.example.esenevlerSpor.util.Encryptor;
 import com.example.esenevlerSpor.util.PasswordGenerator;
 import org.springframework.stereotype.Service;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class KullaniciService {
@@ -34,7 +28,9 @@ public class KullaniciService {
         Kullanici kullanici = kullaniciMapper.toEntityFromSaveRequest(dto);
 
         if (kullanici.getPassword() == null){
+
             kullanici.setPassword(PasswordGenerator.generatePassword());
+
         }
 
         //encrypted
