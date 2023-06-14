@@ -11,8 +11,11 @@ import com.example.esenevlerSpor.util.Encryptor;
 import com.example.esenevlerSpor.util.PasswordGenerator;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class KullaniciService {
+
 
     Encryptor encryptor = com.example.esenevlerSpor.util.Encryptor.getInstance();
     private final KullaniciMapper kullaniciMapper;
@@ -27,14 +30,14 @@ public class KullaniciService {
     public KullaniciDto save(KullaniciSaveRequestDTO dto){
         Kullanici kullanici = kullaniciMapper.toEntityFromSaveRequest(dto);
 
-        if (kullanici.getPassword() == null){
+        if (kullanici.getSifre() == null){
 
-            kullanici.setPassword(PasswordGenerator.generatePassword());
+            kullanici.setSifre(PasswordGenerator.generatePassword());
 
         }
 
         //encrypted
-        kullanici.setPassword(encryptor.generateSecurePassword(kullanici.getPassword()));
+        kullanici.setSifre(encryptor.generateSecurePassword(kullanici.getSifre()));
         kullanici.setTcNo(encryptor.generateSecurePassword(kullanici.getTcNo()));
 
         kullanici = kullaniciRepository.save(kullanici);
@@ -42,7 +45,7 @@ public class KullaniciService {
         KullaniciDto getDto = kullaniciMapper.toDto(kullanici);
 
         getDto.setTcNo(encryptor.gerDecryptedPassword(getDto.getTcNo()));
-        getDto.setPassword(encryptor.gerDecryptedPassword(getDto.getPassword()));
+        getDto.setSifre(encryptor.gerDecryptedPassword(getDto.getSifre()));
 
         return getDto;
     }
@@ -53,15 +56,27 @@ public class KullaniciService {
 
         Kullanici gecici = kullaniciRepository.findByMail(dto.getMail());
 
-        String isTure = encryptor.gerDecryptedPassword(gecici.getPassword());
+        String decryptedPassword = encryptor.gerDecryptedPassword(gecici.getSifre());
 
-        if(dto.getPassword().equals(isTure) ) {
+        if(dto.getSifre().equals(decryptedPassword) ) {
 
             loginBackDto.setId(gecici.getId());
-            loginBackDto.setRoles(gecici.getRole());
+            loginBackDto.setRole(gecici.getRol());
 
         }
         return loginBackDto;
+    }
+
+    public List<KullaniciDto> listAllKullanici(){
+
+        return kullaniciMapper.toDtoListFromEntity(kullaniciRepository.findAllByAktifMiIsTrue());
+
+    }
+
+    public List<KullaniciDto> listAllDeactiveKullanici(){
+
+        return kullaniciMapper.toDtoListFromEntity(kullaniciRepository.findAllByAktifMiIsFalse());
+
     }
 
 }

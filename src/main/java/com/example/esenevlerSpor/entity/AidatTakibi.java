@@ -14,8 +14,8 @@ public class AidatTakibi {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToMany
-    private List<Kullanici> ogrenciId;
+    //@ManyToMany
+    //private List<Kullanici> ogrenciId;
 
     private String aidatDonemi;
 

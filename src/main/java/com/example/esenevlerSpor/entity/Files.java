@@ -16,7 +16,7 @@ public class Files {
     @ManyToOne
     private OgrenciDetay ogrenciId;
 
-    private String name;
+    private String isim;
 
     private String dosyaKategori;
 

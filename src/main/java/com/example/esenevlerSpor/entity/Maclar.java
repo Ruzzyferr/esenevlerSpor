@@ -1,6 +1,7 @@
 package com.example.esenevlerSpor.entity;
 
 
+import com.example.esenevlerSpor.enums.MacinDurumu;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -23,10 +24,10 @@ public class Maclar {
 
     private Date date;
 
-    private int Score;
+    private int score1;
 
-    private boolean didWin;
+    private int score2;
 
-    private boolean isPlayed;
+    private MacinDurumu durum;
 
 }

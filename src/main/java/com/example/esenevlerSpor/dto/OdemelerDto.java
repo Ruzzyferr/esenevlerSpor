@@ -3,6 +3,8 @@ package com.example.esenevlerSpor.dto;
 import com.example.esenevlerSpor.entity.OgrenciDetay;
 import lombok.Data;
 
+import javax.persistence.ManyToOne;
+
 @Data
 public class OdemelerDto {
 
@@ -12,8 +14,8 @@ public class OdemelerDto {
 
     private int donem;
 
-    private int totalPrice;
+    private int toplamFiyat;
 
-    private boolean isPaid;
+    private boolean odendiMi;
 
 }

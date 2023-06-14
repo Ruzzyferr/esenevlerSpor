@@ -6,20 +6,19 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "Odemeler")
-public class Odemeler {
+@Table(name = "sayfa")
+public class Sayfa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
-    private OgrenciDetay ogrenciId;
+    private String baslik;
 
-    private int donem;
+    private String aciklama;
 
-    private int toplamFiyat;
+    //foto gelicek
 
-    private boolean odendiMi;
+    private boolean aktif;
 
 }

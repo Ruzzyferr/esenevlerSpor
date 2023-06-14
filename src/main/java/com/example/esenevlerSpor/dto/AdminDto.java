@@ -1,5 +1,6 @@
 package com.example.esenevlerSpor.dto;
 
+import com.example.esenevlerSpor.enums.Role;
 import lombok.Data;
 
 @Data
@@ -7,12 +8,14 @@ public class AdminDto {
 
     private int id;
 
-    private String name;
+    private String isim;
 
-    private String Surname;
+    private String soyadı;
 
     private String mail;
 
-    private String password;
+    private String sifre;
+
+    private Role rol;
 
 }

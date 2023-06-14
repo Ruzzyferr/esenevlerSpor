@@ -1,7 +1,6 @@
 package com.example.esenevlerSpor.entity;
 
-import com.example.esenevlerSpor.enums.Cinsiyet;
-import com.example.esenevlerSpor.enums.Roles;
+import com.example.esenevlerSpor.enums.Role;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,9 +17,9 @@ public class Kullanici {
 
     private String tcNo;
 
-    private String name;
+    private String isim;
 
-    private String surname;
+    private String soyisim;
 
     private String yas;
 
@@ -30,16 +29,16 @@ public class Kullanici {
 
     private String mail;
 
-    private String password;
+    private String sifre;
 
     @Enumerated(EnumType.STRING)
-    private Roles role;
+    private Role rol;
 
     private String adres;
 
-    @ManyToOne
+    @OneToOne
     private OgrenciDetay ogrenciDetayID;
 
-    private Boolean isActive;
+    private Boolean aktifMi;
 
 }

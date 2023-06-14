@@ -6,6 +6,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface KullaniciMapper {
 
@@ -14,6 +16,8 @@ public interface KullaniciMapper {
 
     @Named("toDto")
     KullaniciDto toDto (Kullanici entity);
+
+    List<KullaniciDto> toDtoListFromEntity (List<Kullanici> entity);
 
     Kullanici toEntityFromSaveRequest (KullaniciSaveRequestDTO dto);
 

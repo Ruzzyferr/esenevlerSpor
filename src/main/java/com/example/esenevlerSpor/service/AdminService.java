@@ -28,18 +28,18 @@ public class AdminService {
     public AdminDto save(AdminSaveRequestDto dto) {
         Admin admin = adminMapper.toEntityFromSaveRequestDto(dto);
 
-        if (admin.getPassword() == null) {
+        if (admin.getSifre() == null) {
 
-            admin.setPassword(PasswordGenerator.generatePassword());
+            admin.setSifre(PasswordGenerator.generatePassword());
 
         }
-        admin.setPassword(encryptor.generateSecurePassword(admin.getPassword()));
+        admin.setSifre(encryptor.generateSecurePassword(admin.getSifre()));
 
          admin = adminRepository.save(admin);
 
         AdminDto getDto = adminMapper.toDto(admin);
 
-        getDto.setPassword(encryptor.gerDecryptedPassword(getDto.getPassword()));
+        getDto.setSifre(encryptor.gerDecryptedPassword(getDto.getSifre()));
 
         return getDto;
     }
@@ -50,9 +50,9 @@ public class AdminService {
 
         Admin gecici = adminRepository.findByMail(dto.getMail());
 
-        String isTure = encryptor.gerDecryptedPassword(gecici.getPassword());
+        String isTure = encryptor.gerDecryptedPassword(gecici.getSifre());
 
-        if(dto.getPassword().equals(isTure) ) {
+        if(dto.getSifre().equals(isTure) ) {
 
             loginBackDto.setId(gecici.getId());
 

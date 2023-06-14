@@ -7,6 +7,6 @@ public class LoginDto {
 
     String mail;
 
-    String password;
+    String sifre;
 
 }

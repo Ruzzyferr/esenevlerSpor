@@ -15,12 +15,12 @@ public class Antrenmanlar {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private Date date;
+    private Date tarih;
 
     private AntrenmanKategori kategori;
 
-    private String location;
+    private String lokasyon;
 
-    private String status;
+    private String durum;
 
 }

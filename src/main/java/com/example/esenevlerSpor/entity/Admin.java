@@ -1,5 +1,6 @@
 package com.example.esenevlerSpor.entity;
 
+import com.example.esenevlerSpor.enums.Role;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -13,13 +14,14 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String name;
+    private String isim;
 
-    private String Surname;
+    private String soyadı;
 
     private String mail;
 
-    private String password;
+    private String sifre;
 
+    private Role rol;
 
 }

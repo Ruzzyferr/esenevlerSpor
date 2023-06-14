@@ -3,19 +3,20 @@ package com.example.esenevlerSpor.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "webpage")
-public class Webpage {
+@Table(name = "yoklama")
+public class Yoklama {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(length = 100)
-    private String baslik;
+    private Date gun;
 
-    private String aciklama;
+    @ManyToOne
+    private Kullanici ogrenci;
 
 }

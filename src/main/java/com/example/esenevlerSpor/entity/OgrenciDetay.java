@@ -32,6 +32,12 @@ public class OgrenciDetay {
 
     private String position;
 
+    private boolean lisans;
+
+    private int aidat;
+
+    private String saatGrubu;
+
     @ManyToOne
     private Takim takim;
 

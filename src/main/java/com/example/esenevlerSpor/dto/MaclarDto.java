@@ -1,5 +1,6 @@
 package com.example.esenevlerSpor.dto;
 
+import com.example.esenevlerSpor.enums.MacinDurumu;
 import lombok.Data;
 
 import java.util.Date;
@@ -17,10 +18,10 @@ public class MaclarDto {
 
     private Date date;
 
-    private int Score;
+    private int skor1;
 
-    private boolean didWin;
+    private int skor2;
 
-    private boolean isPlayed;
+    private MacinDurumu durum;
 
 }
