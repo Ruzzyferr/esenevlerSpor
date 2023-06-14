@@ -14,7 +14,7 @@ public class Odemeler {
     private int id;
 
     @ManyToOne
-    private OgrenciDetay ogrenciId;
+    private Kullanici ogrenci;
 
     private int donem;
 

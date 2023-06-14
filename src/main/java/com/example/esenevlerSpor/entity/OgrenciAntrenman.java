@@ -15,7 +15,7 @@ public class OgrenciAntrenman {
     private int id;
 
     @ManyToOne
-    private Kullanici ogrenciId;
+    private Kullanici ogrenci;
 
     @OneToOne
     private Antrenmanlar antrenman;

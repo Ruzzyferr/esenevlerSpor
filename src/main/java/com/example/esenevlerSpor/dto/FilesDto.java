@@ -1,6 +1,6 @@
 package com.example.esenevlerSpor.dto;
 
-import com.example.esenevlerSpor.entity.OgrenciDetay;
+import com.example.esenevlerSpor.entity.Kullanici;
 import lombok.Data;
 
 
@@ -9,7 +9,7 @@ public class FilesDto {
 
     private int id;
 
-    private OgrenciDetay ogrenciId;
+    private Kullanici ogrenci;
 
     private String name;
 

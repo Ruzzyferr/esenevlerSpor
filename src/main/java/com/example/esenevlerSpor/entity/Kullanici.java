@@ -36,9 +36,37 @@ public class Kullanici {
 
     private String adres;
 
-    @OneToOne
-    private OgrenciDetay ogrenciDetayID;
-
     private Boolean aktifMi;
+
+    @ManyToOne
+    private Takim takim;
+
+    private String anneAdi;
+
+    private String anneTlf;
+
+    private String anneMeslek;
+
+    private String babaAdi;
+
+    private String babaTlf;
+
+    private String babaMeslek;
+
+    private String uniformNumber;
+
+    private String position;
+
+    private boolean lisans;
+
+    private int aidat;
+
+    private String saatGrubu;
+
+    private String league;
+
+    @ManyToOne
+    private Kullanici veli;
+
 
 }

@@ -13,12 +13,12 @@ public class Files {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
-    private OgrenciDetay ogrenciId;
-
     private String isim;
 
     private String dosyaKategori;
+
+    @ManyToOne
+    private Kullanici ogrenci;
 
 
 }

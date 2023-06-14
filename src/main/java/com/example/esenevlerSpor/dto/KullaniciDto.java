@@ -1,6 +1,7 @@
 package com.example.esenevlerSpor.dto;
 
-import com.example.esenevlerSpor.entity.OgrenciDetay;
+import com.example.esenevlerSpor.entity.Kullanici;
+import com.example.esenevlerSpor.entity.Takim;
 import com.example.esenevlerSpor.enums.Role;
 import lombok.Data;
 
@@ -35,8 +36,34 @@ public class KullaniciDto {
 
     private String adres;
 
-    private OgrenciDetay ogrenciDetayID;
-
     private Boolean aktifMi;
+
+    private Takim takim;
+
+    private String anneAdi;
+
+    private String anneTlf;
+
+    private String anneMeslek;
+
+    private String babaAdi;
+
+    private String babaTlf;
+
+    private String babaMeslek;
+
+    private String uniformNumber;
+
+    private String position;
+
+    private boolean lisans;
+
+    private int aidat;
+
+    private String saatGrubu;
+
+    private String league;
+
+    private Kullanici veli;
 
 }

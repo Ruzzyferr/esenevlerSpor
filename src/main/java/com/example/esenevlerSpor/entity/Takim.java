@@ -21,7 +21,5 @@ public class Takim {
 
     private Date kurulmaTarih;
 
-    @OneToMany
-    private List<Kullanici> kullanici;
 
 }

@@ -1,15 +1,13 @@
 package com.example.esenevlerSpor.dto;
 
-import com.example.esenevlerSpor.entity.OgrenciDetay;
+import com.example.esenevlerSpor.entity.Kullanici;
 import lombok.Data;
-
-import javax.persistence.ManyToOne;
 
 @Data
 public class VeliOgrenciDto {
 
     private int id;
 
-    private OgrenciDetay ogrenciId;
+    private Kullanici ogrenci;
 
 }
