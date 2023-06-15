@@ -16,5 +16,9 @@ public interface KullaniciRepository extends JpaRepository<Kullanici, Integer> {
 
     List<Kullanici> findAllByAktifMiIsFalse();
 
+    Kullanici findById(int id);
+
+    List<Kullanici> findAllByRolVeli();
+
 
 }

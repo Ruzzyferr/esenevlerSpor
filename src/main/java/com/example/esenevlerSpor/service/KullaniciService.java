@@ -1,10 +1,7 @@
 package com.example.esenevlerSpor.service;
 
 import com.example.esenevlerSpor.Repositories.KullaniciRepository;
-import com.example.esenevlerSpor.dto.KullaniciDto;
-import com.example.esenevlerSpor.dto.KullaniciSaveRequestDTO;
-import com.example.esenevlerSpor.dto.LoginBackDto;
-import com.example.esenevlerSpor.dto.LoginDto;
+import com.example.esenevlerSpor.dto.*;
 import com.example.esenevlerSpor.entity.Kullanici;
 import com.example.esenevlerSpor.mapper.KullaniciMapper;
 import com.example.esenevlerSpor.util.Encryptor;
@@ -15,7 +12,6 @@ import java.util.List;
 
 @Service
 public class KullaniciService {
-
 
     Encryptor encryptor = com.example.esenevlerSpor.util.Encryptor.getInstance();
     private final KullaniciMapper kullaniciMapper;
@@ -62,9 +58,29 @@ public class KullaniciService {
 
             loginBackDto.setId(gecici.getId());
             loginBackDto.setRole(gecici.getRol());
-
+            return loginBackDto;
         }
-        return loginBackDto;
+        return null;
+    }
+
+    public SifreDegisti sifreDegistir(SifreDegistirIstek dto){
+
+        Kullanici gecici = kullaniciRepository.findById(dto.getId());
+        SifreDegisti degisti = new SifreDegisti();
+
+
+        String decryptedPassword = encryptor.gerDecryptedPassword(gecici.getSifre());
+
+        if(dto.getMevcutSifre().equals( decryptedPassword)){
+            gecici.setSifre(encryptor.generateSecurePassword(dto.getYeniSifre()));
+            kullaniciRepository.save(gecici);
+            degisti.setDegistiMi(true);
+            degisti.setYeniSifre(dto.getYeniSifre());
+            degisti.setOnay(encryptor.gerDecryptedPassword(gecici.getSifre()));
+            return degisti;
+        }
+
+        return null;
     }
 
     public List<KullaniciDto> listAllKullanici(){
@@ -79,4 +95,11 @@ public class KullaniciService {
 
     }
 
+    public List<KullaniciDto> getAllVeli(){
+        return kullaniciMapper.toDtoListFromEntity(kullaniciRepository.findAllByRolVeli());
+    }
+
+    public KullaniciDto getKullanici(int id) {
+        return kullaniciMapper.toDto(kullaniciRepository.findById(id));
+    }
 }

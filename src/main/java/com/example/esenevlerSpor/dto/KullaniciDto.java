@@ -25,6 +25,8 @@ public class KullaniciDto {
 
     private Date dogumTarih;
 
+    private String dogumYeri;
+
     private String kanGrubu;
 
     private String mail;
@@ -36,9 +38,7 @@ public class KullaniciDto {
 
     private String adres;
 
-    private Boolean aktifMi;
-
-    private Takim takim;
+    private boolean servisVarMi;
 
     private String anneAdi;
 
@@ -52,9 +52,9 @@ public class KullaniciDto {
 
     private String babaMeslek;
 
-    private String uniformNumber;
+    private String formaNum;
 
-    private String position;
+    private String mevki;
 
     private boolean lisans;
 
@@ -62,8 +62,11 @@ public class KullaniciDto {
 
     private String saatGrubu;
 
-    private String league;
+    private String lig;
 
+    @ManyToOne
     private Kullanici veli;
+
+    private Boolean aktifMi;
 
 }

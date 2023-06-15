@@ -1,9 +1,6 @@
 package com.example.esenevlerSpor.controller;
 
-import com.example.esenevlerSpor.dto.KullaniciDto;
-import com.example.esenevlerSpor.dto.KullaniciSaveRequestDTO;
-import com.example.esenevlerSpor.dto.LoginBackDto;
-import com.example.esenevlerSpor.dto.LoginDto;
+import com.example.esenevlerSpor.dto.*;
 import com.example.esenevlerSpor.service.AdminService;
 import com.example.esenevlerSpor.service.KullaniciService;
 import org.springframework.http.HttpStatus;
@@ -41,6 +38,13 @@ public class KullaniciController {
         return new ResponseEntity<>(loginBackDto, HttpStatus.OK);
     }
 
+    @PostMapping("/sifredegis")
+    public ResponseEntity<SifreDegisti> sifreDegistir (@RequestBody SifreDegistirIstek dto){
+        SifreDegisti sifreDegisti = kullaniciService.sifreDegistir(dto);
+
+        return new ResponseEntity<>(sifreDegisti, HttpStatus.OK);
+    }
+
     @GetMapping("/activeusers")
     public ResponseEntity<List<KullaniciDto>> getAllKullanici(){
 
@@ -52,6 +56,18 @@ public class KullaniciController {
 
         return new ResponseEntity<>(kullaniciService.listAllDeactiveKullanici(), HttpStatus.OK);
     }
+
+    @GetMapping("/getallveli")
+    public ResponseEntity<List<KullaniciDto>> getAllVeli(){
+        return new ResponseEntity<>(kullaniciService.getAllVeli(), HttpStatus.OK);
+    }
+
+    @GetMapping("/getkullanici")
+    public ResponseEntity<KullaniciDto> getKullanici(int id){
+        return new ResponseEntity<>(kullaniciService.getKullanici(id), HttpStatus.OK);
+    }
+
+
 
 
 }
