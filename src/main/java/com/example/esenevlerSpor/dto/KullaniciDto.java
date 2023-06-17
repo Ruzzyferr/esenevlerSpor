@@ -33,7 +33,6 @@ public class KullaniciDto {
 
     private String sifre;
 
-    @Enumerated(EnumType.STRING)
     private Role rol;
 
     private String adres;

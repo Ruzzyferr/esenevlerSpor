@@ -3,6 +3,8 @@ package com.example.esenevlerSpor.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -13,13 +15,11 @@ public class Odemeler {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
-    private Kullanici ogrenci;
+    @ManyToMany
+    private List<Kullanici> ogrenci;
 
     private int donem;
 
     private int toplamFiyat;
-
-    private boolean odendiMi;
 
 }

@@ -3,6 +3,7 @@ package com.example.esenevlerSpor.service;
 import com.example.esenevlerSpor.Repositories.KullaniciRepository;
 import com.example.esenevlerSpor.dto.*;
 import com.example.esenevlerSpor.entity.Kullanici;
+import com.example.esenevlerSpor.enums.Role;
 import com.example.esenevlerSpor.mapper.KullaniciMapper;
 import com.example.esenevlerSpor.util.Encryptor;
 import com.example.esenevlerSpor.util.PasswordGenerator;
@@ -96,7 +97,7 @@ public class KullaniciService {
     }
 
     public List<KullaniciDto> getAllVeli(){
-        return kullaniciMapper.toDtoListFromEntity(kullaniciRepository.findAllByRolVeli());
+        return kullaniciMapper.toDtoListFromEntity(kullaniciRepository.findAllByRol(Role.VELI));
     }
 
     public KullaniciDto getKullanici(int id) {

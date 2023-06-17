@@ -2,6 +2,7 @@ package com.example.esenevlerSpor.Repositories;
 
 import com.example.esenevlerSpor.dto.KullaniciDto;
 import com.example.esenevlerSpor.entity.Kullanici;
+import com.example.esenevlerSpor.enums.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -18,7 +19,7 @@ public interface KullaniciRepository extends JpaRepository<Kullanici, Integer> {
 
     Kullanici findById(int id);
 
-    List<Kullanici> findAllByRolVeli();
+    List<Kullanici> findAllByRol(Role role);
 
 
 }
