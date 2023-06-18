@@ -11,3 +11,14 @@ spring:
           jdbc:
             time_zone: UTC
     show-sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ruzgaremirofficial@gmail.com
+    password: pvsvzxpkyxwpjarb
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls.enable: true
+

@@ -6,6 +6,7 @@ import com.example.esenevlerSpor.entity.Kullanici;
 import com.example.esenevlerSpor.enums.Role;
 import com.example.esenevlerSpor.mapper.KullaniciMapper;
 import com.example.esenevlerSpor.util.Encryptor;
+import com.example.esenevlerSpor.util.MailService;
 import com.example.esenevlerSpor.util.PasswordGenerator;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +19,13 @@ public class KullaniciService {
     private final KullaniciMapper kullaniciMapper;
     private final KullaniciRepository kullaniciRepository;
 
+    private final MailService mailService;
 
-    public KullaniciService(KullaniciMapper kullaniciMapper, KullaniciRepository kullaniciRepository) {
+
+    public KullaniciService(KullaniciMapper kullaniciMapper, KullaniciRepository kullaniciRepository, MailService mailService) {
         this.kullaniciMapper = kullaniciMapper;
         this.kullaniciRepository = kullaniciRepository;
+        this.mailService = mailService;
     }
 
     public KullaniciDto save(KullaniciSaveRequestDTO dto){
@@ -32,6 +36,13 @@ public class KullaniciService {
             kullanici.setSifre(PasswordGenerator.generatePassword());
 
         }
+
+        mailService.sendEmail(kullanici.getMail(),
+                "Esenevler Spor Kulübü",
+                "Spor Kulübüne hoş geldiniz. Mail adresiniz için atanan şifre: \n \n" +
+                        kullanici.getSifre() +
+                        "\n \n Şifreniz ile sisteme giriş yapabilir ve değiştirebilirsiniz."
+                );
 
         //encrypted
         kullanici.setSifre(encryptor.generateSecurePassword(kullanici.getSifre()));

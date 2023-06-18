@@ -10,4 +10,6 @@ public interface OdemelerRepository extends JpaRepository<Odemeler, Integer> {
 
     Odemeler getAllBy();
 
+    Odemeler findById(int id);
+
 }

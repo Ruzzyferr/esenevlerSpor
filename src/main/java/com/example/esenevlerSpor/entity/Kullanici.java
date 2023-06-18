@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -69,5 +70,7 @@ public class Kullanici {
 
     private Boolean aktifMi;
 
+    @OneToMany(mappedBy = "ogrenci")
+    private List<OdemelerOgrenciler> odemelerOgrenciler;
 
 }

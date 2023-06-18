@@ -15,8 +15,8 @@ public class Odemeler {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToMany
-    private List<Kullanici> ogrenci;
+    @OneToMany(mappedBy = "odemeler")
+    private List<OdemelerOgrenciler> odemelerOgrenciler;
 
     private int donem;
 

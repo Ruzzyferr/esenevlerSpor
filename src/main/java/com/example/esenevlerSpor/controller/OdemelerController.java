@@ -1,9 +1,6 @@
 package com.example.esenevlerSpor.controller;
 
-import com.example.esenevlerSpor.dto.KullaniciDto;
-import com.example.esenevlerSpor.dto.KullaniciSaveRequestDTO;
-import com.example.esenevlerSpor.dto.OdemelerDto;
-import com.example.esenevlerSpor.dto.OdemelerSaveRequestDto;
+import com.example.esenevlerSpor.dto.*;
 import com.example.esenevlerSpor.service.OdemelerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,5 +25,12 @@ public class OdemelerController {
         OdemelerDto odemelerDto = odemelerService.save(dto);
 
         return new ResponseEntity<>(odemelerDto, HttpStatus.OK);
+    }
+
+    @PostMapping("/odemeyap")
+    public ResponseEntity<Boolean> odemeYap (@RequestBody OdemeYapDto dto){
+
+
+       return new ResponseEntity<>(odemelerService.odemeYap(dto) ,HttpStatus.OK);
     }
 }
