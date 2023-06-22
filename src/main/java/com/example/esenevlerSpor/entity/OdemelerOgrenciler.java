@@ -14,11 +14,11 @@ public class OdemelerOgrenciler {
     private int id;
 
     @ManyToOne
-    private Odemeler odemeler;
+    public Odemeler odemeler;
 
     @ManyToOne
-    private Kullanici ogrenci;
+    public Kullanici ogrenci;
 
-    private boolean odendiMi = false;
+    public boolean odendiMi = false;
 
 }

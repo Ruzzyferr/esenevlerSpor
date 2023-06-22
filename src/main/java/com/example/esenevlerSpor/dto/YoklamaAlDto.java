@@ -7,16 +7,9 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-public class OdemelerSaveRequestDto {
+public class YoklamaAlDto {
 
-    private int id;
+    private Date date;
 
-    private String baslik;
-
-    private Date odemeTarihi;
-
-    private int tutar;
-
-    private String sebep;
-
+    private List<Kullanici> kullanicis;
 }

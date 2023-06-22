@@ -18,7 +18,6 @@ public class KullaniciService {
     Encryptor encryptor = com.example.esenevlerSpor.util.Encryptor.getInstance();
     private final KullaniciMapper kullaniciMapper;
     private final KullaniciRepository kullaniciRepository;
-
     private final MailService mailService;
 
 
@@ -111,7 +110,8 @@ public class KullaniciService {
         return kullaniciMapper.toDtoListFromEntity(kullaniciRepository.findAllByRol(Role.VELI));
     }
 
-    public KullaniciDto getKullanici(int id) {
-        return kullaniciMapper.toDto(kullaniciRepository.findById(id));
+    public KullaniciDto getKullanici(GetKullaniciDto dto) {
+        return kullaniciMapper.toDto(kullaniciRepository.findById(dto.getId()));
     }
+
 }

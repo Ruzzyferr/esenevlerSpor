@@ -3,14 +3,20 @@ package com.example.esenevlerSpor.dto;
 import com.example.esenevlerSpor.entity.Kullanici;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class OdemelerDto {
 
     private int id;
 
-    private int donem;
+    private String baslik;
 
-    private int toplamFiyat;
+    private Date odemeTarihi;
+
+    private int tutar;
+
+    private String sebep;
 
 
 }

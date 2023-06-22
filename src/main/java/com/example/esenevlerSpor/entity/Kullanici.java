@@ -70,7 +70,8 @@ public class Kullanici {
 
     private Boolean aktifMi;
 
-    @OneToMany(mappedBy = "ogrenci")
+    @OneToMany(mappedBy = "ogrenci", fetch = FetchType.LAZY)
     private List<OdemelerOgrenciler> odemelerOgrenciler;
+
 
 }

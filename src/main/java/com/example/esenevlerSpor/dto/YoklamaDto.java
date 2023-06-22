@@ -3,20 +3,18 @@ package com.example.esenevlerSpor.dto;
 import com.example.esenevlerSpor.entity.Kullanici;
 import lombok.Data;
 
+import javax.persistence.ManyToOne;
 import java.util.Date;
-import java.util.List;
 
 @Data
-public class OdemelerSaveRequestDto {
+public class YoklamaDto {
 
     private int id;
 
-    private String baslik;
+    private Date tarih;
 
-    private Date odemeTarihi;
+    private Kullanici ogrenci;
 
-    private int tutar;
-
-    private String sebep;
+    private boolean geldiMi=false;
 
 }

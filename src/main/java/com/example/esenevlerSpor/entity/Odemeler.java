@@ -3,6 +3,7 @@ package com.example.esenevlerSpor.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -15,11 +16,15 @@ public class Odemeler {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToMany(mappedBy = "odemeler")
+    @OneToMany(mappedBy = "odemeler", fetch = FetchType.LAZY)
     private List<OdemelerOgrenciler> odemelerOgrenciler;
 
-    private int donem;
+    private String baslik;
 
-    private int toplamFiyat;
+    private Date odemeTarihi;
+
+    private int tutar;
+
+    private String sebep;
 
 }
