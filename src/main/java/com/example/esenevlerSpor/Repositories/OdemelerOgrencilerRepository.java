@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface OdemelerOgrencilerRepository extends JpaRepository<OdemelerOgrenciler, Integer> {
-    OdemelerOgrenciler findByOdemelerAndOgrenci(Odemeler odemeler, Kullanici ogrenci);
+    OdemelerOgrenciler findByOdemeler_IdAndOgrenci_Id(int id, int id2);
 
     List<OdemelerOgrenciler> findAllByOgrenci_Id(int id);
 

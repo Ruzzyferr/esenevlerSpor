@@ -9,10 +9,11 @@ import com.example.esenevlerSpor.entity.Odemeler;
 import com.example.esenevlerSpor.entity.OdemelerOgrenciler;
 import com.example.esenevlerSpor.enums.Role;
 import com.example.esenevlerSpor.mapper.OdemelerMapper;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OdemelerService {
@@ -48,22 +49,27 @@ public class OdemelerService {
         return odemelerMapper.toDto(odeme);
     }
 
-    public Boolean odemeYap(OdemeYapDto dto) {
+    public Boolean odemeYap(@NotNull OdemeYapDto dto) {
 
         OdemelerOgrenciler gecici = odemelerOgrencilerRepository.
-                findByOdemelerAndOgrenci(dto.getOdemeler(), dto.getOgrenci());
+                findByOdemeler_IdAndOgrenci_Id(dto.getOdemeler().getId(), dto.getOgrenci().getId());
 
         gecici.setOdendiMi(true);
         odemelerOgrencilerRepository.save(gecici);
         return true;
     }
 
-/*
-    public GetTumOdemeBilgileriDto getTumOdemelerOgrenciler() {
-        GetTumOdemeBilgileriDto getTumOdemeBilgileriDto = new GetTumOdemeBilgileriDto();
-        getTumOdemeBilgileriDto.setOdemelerOgrencilers(odemelerOgrencilerRepository.findAll());
-        return getTumOdemeBilgileriDto;
+
+    public List<OdemelerOgrenciler> getTumOdemelerOgrenciler(GetKullaniciDto dto) {
+
+        if (dto == null) {
+            List<OdemelerOgrenciler> odemelerOgrencilers = odemelerOgrencilerRepository.findAll();
+            return odemelerOgrencilers;
+        }
+
+        List<OdemelerOgrenciler> odemelerOgrencilers = odemelerOgrencilerRepository.findAllByOgrenci_Id(dto.getId());
+
+        return odemelerOgrencilers;
     }
 
- */
 }

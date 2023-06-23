@@ -16,9 +16,6 @@ public class Odemeler {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToMany(mappedBy = "odemeler", fetch = FetchType.LAZY)
-    private List<OdemelerOgrenciler> odemelerOgrenciler;
-
     private String baslik;
 
     private Date odemeTarihi;
