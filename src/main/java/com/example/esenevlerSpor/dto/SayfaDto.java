@@ -13,4 +13,6 @@ public class SayfaDto {
 
     private String aciklama;
 
+    private boolean aktif = true;
+
 }

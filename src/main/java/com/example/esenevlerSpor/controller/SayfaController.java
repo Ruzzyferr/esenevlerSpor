@@ -29,7 +29,7 @@ public class SayfaController {
     }
 
     @GetMapping("/getallsayfa")
-    public ResponseEntity<List<SayfaDto>> getAllKullanici(){
+    public ResponseEntity<List<SayfaDto>> getAllSayfa(){
 
         return new ResponseEntity<>(service.listAllSayfa(), HttpStatus.OK);
 

@@ -19,6 +19,6 @@ public class Sayfa {
 
     //foto gelicek
 
-    private boolean aktif;
+    private boolean aktif = true;
 
 }

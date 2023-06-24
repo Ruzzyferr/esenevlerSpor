@@ -13,4 +13,6 @@ public class SayfaSaveRequestDto {
 
     private String aciklama;
 
+    private boolean aktif = true;
+
 }

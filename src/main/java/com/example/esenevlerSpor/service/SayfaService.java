@@ -33,7 +33,9 @@ public class SayfaService {
 
     public List<SayfaDto> listAllSayfa(){
 
-        return sayfaMapper.toDtoListFromEntity(sayfaRepository.findAllByAktifIsTrue());
+        List<SayfaDto> sayfaDtos = sayfaMapper.toDtoListFromEntity(sayfaRepository.findAllByAktifIsTrue());
+
+        return sayfaDtos;
 
     }
 
