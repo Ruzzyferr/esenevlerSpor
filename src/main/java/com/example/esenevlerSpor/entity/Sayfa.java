@@ -13,6 +13,8 @@ public class Sayfa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    private String sayfaAdi;
+
     private String baslik;
 
     private String aciklama;

@@ -30,18 +30,42 @@ public class KullaniciService {
     public KullaniciDto save(KullaniciSaveRequestDTO dto){
         Kullanici kullanici = kullaniciMapper.toEntityFromSaveRequest(dto);
 
+        if(kullaniciRepository.existsById(dto.getId())){
+            Kullanici kullanici1 = kullaniciRepository.findById(dto.getId());
+
+            kullanici.setSifre(encryptor.gerDecryptedPassword(kullanici1.getSifre()));
+            kullanici.setSifre(encryptor.generateSecurePassword(kullanici.getSifre()));
+            kullanici.setTcNo(encryptor.generateSecurePassword(kullanici.getTcNo()));
+
+            kullanici = kullaniciRepository.save(kullanici);
+            KullaniciDto getDto = kullaniciMapper.toDto(kullanici);
+
+            getDto.setTcNo(encryptor.gerDecryptedPassword(getDto.getTcNo()));
+            getDto.setSifre(encryptor.gerDecryptedPassword(getDto.getSifre()));
+
+            return getDto;
+        }
+
+
+        if(kullaniciRepository.existsByMail(dto.getMail()) ){
+            return new KullaniciDto();
+        }
+
+
         if (kullanici.getSifre() == null){
 
             kullanici.setSifre(PasswordGenerator.generatePassword());
 
         }
 
-        mailService.sendEmail(kullanici.getMail(),
-                "Esenevler Spor Kulübü",
-                "Spor Kulübüne hoş geldiniz. Mail adresiniz için atanan şifre: \n \n" +
-                        kullanici.getSifre() +
-                        "\n \n Şifreniz ile sisteme giriş yapabilir ve değiştirebilirsiniz."
-                );
+        if(dto.getId() == 0) {
+            mailService.sendEmail(kullanici.getMail(),
+                    "Esenevler Spor Kulübü",
+                    "Spor Kulübüne hoş geldiniz. Mail adresiniz için atanan şifre: \n \n" +
+                            kullanici.getSifre() +
+                            "\n \n Şifreniz ile sisteme giriş yapabilir ve değiştirebilirsiniz."
+            );
+        }
 
         //encrypted
         kullanici.setSifre(encryptor.generateSecurePassword(kullanici.getSifre()));

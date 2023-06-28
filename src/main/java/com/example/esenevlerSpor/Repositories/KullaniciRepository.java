@@ -13,6 +13,10 @@ public interface KullaniciRepository extends JpaRepository<Kullanici, Integer> {
 
     Kullanici findByMail(String mail);
 
+    Boolean existsByMail(String mail);
+
+    Boolean existsById(int id);
+
     List<Kullanici> findAllByAktifMiIsTrue();
 
     List<Kullanici> findAllByAktifMiIsFalse();

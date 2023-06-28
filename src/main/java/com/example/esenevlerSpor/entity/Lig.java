@@ -3,6 +3,7 @@ package com.example.esenevlerSpor.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Entity
@@ -14,6 +15,10 @@ public class Lig {
     private int id;
 
     private String ligAdi;
+
+    private String yasGrubu;
+
+    private Date kurulmaTarihi;
 
 
 
