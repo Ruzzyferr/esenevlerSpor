@@ -1,6 +1,7 @@
 package com.example.esenevlerSpor.dto;
 
 import com.example.esenevlerSpor.entity.Kullanici;
+import com.example.esenevlerSpor.entity.Lig;
 import com.example.esenevlerSpor.entity.Takim;
 import com.example.esenevlerSpor.enums.Role;
 import lombok.Data;
@@ -61,7 +62,7 @@ public class KullaniciDto {
 
     private String saatGrubu;
 
-    private String lig;
+    private Lig lig;
 
     @ManyToOne
     private Kullanici veli;

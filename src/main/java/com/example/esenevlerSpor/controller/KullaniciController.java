@@ -63,7 +63,12 @@ public class KullaniciController {
         return new ResponseEntity<>(kullaniciService.getAllVeli(), HttpStatus.OK);
     }
 
-    @GetMapping("/getkullanici")
+    @GetMapping("/getallogrenci")
+    public ResponseEntity<List<KullaniciDto>> getAllOgrenci(){
+        return new ResponseEntity<>(kullaniciService.getAllOgrenci(), HttpStatus.OK);
+    }
+
+    @PostMapping("/getkullanici")
     public ResponseEntity<KullaniciDto> getKullanici(@RequestBody GetKullaniciDto dto){
         return new ResponseEntity<>(kullaniciService.getKullanici(dto), HttpStatus.OK);
     }

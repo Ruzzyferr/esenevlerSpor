@@ -1,13 +1,16 @@
 package com.example.esenevlerSpor.controller;
 
+import com.example.esenevlerSpor.dto.GetDateDto;
+import com.example.esenevlerSpor.dto.GetKullaniciDto;
 import com.example.esenevlerSpor.dto.YoklamaAlDto;
+import com.example.esenevlerSpor.entity.OdemelerOgrenciler;
+import com.example.esenevlerSpor.entity.Yoklama;
 import com.example.esenevlerSpor.service.YoklamaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/yoklama")
@@ -22,9 +25,18 @@ public class YoklamaController {
 
     @PostMapping("/yoklamaal")
     public ResponseEntity<Boolean> yoklamaAl (@RequestBody YoklamaAlDto dto){
-
-
         return new ResponseEntity<>(yoklamaService.yoklamaAL(dto), HttpStatus.OK);
     }
+
+    @GetMapping("/gettumyoklamabilgileri")
+    public ResponseEntity<List<Yoklama>> getTumYoklamaBilgileri (@RequestBody(required = false) GetKullaniciDto dto){
+        return new ResponseEntity<>(yoklamaService.getTumYoklamaOgrenciler(dto), HttpStatus.OK);
+    }
+
+    @GetMapping("/gettumyoklamabilgileridate")
+    public ResponseEntity<List<Yoklama>> getTumYoklamaBilgileriDate (@RequestBody GetDateDto dto){
+        return new ResponseEntity<>(yoklamaService.getTumYoklamaOgrencilerDate(dto), HttpStatus.OK);
+    }
+
 
 }

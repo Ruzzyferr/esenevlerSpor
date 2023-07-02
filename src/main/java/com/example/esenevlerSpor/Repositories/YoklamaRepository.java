@@ -1,6 +1,7 @@
 package com.example.esenevlerSpor.Repositories;
 
 import com.example.esenevlerSpor.entity.Kullanici;
+import com.example.esenevlerSpor.entity.OdemelerOgrenciler;
 import com.example.esenevlerSpor.entity.Sayfa;
 import com.example.esenevlerSpor.entity.Yoklama;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,4 +17,7 @@ public interface YoklamaRepository extends JpaRepository<Yoklama, Integer> {
 
     Boolean existsByTarih(Date date);
 
+    List<Yoklama> findAllByOgrenci_Id(int id);
+
+    List<Yoklama> findAllByTarih(Date date);
 }

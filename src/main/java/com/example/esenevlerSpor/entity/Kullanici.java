@@ -63,7 +63,8 @@ public class Kullanici {
 
     private String saatGrubu;
 
-    private String lig;
+    @ManyToOne
+    private Lig lig;
 
     @ManyToOne
     private Kullanici veli;

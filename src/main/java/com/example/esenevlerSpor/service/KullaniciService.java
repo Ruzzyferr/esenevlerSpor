@@ -35,12 +35,10 @@ public class KullaniciService {
 
             kullanici.setSifre(encryptor.gerDecryptedPassword(kullanici1.getSifre()));
             kullanici.setSifre(encryptor.generateSecurePassword(kullanici.getSifre()));
-            kullanici.setTcNo(encryptor.generateSecurePassword(kullanici.getTcNo()));
 
             kullanici = kullaniciRepository.save(kullanici);
             KullaniciDto getDto = kullaniciMapper.toDto(kullanici);
 
-            getDto.setTcNo(encryptor.gerDecryptedPassword(getDto.getTcNo()));
             getDto.setSifre(encryptor.gerDecryptedPassword(getDto.getSifre()));
 
             return getDto;
@@ -69,13 +67,11 @@ public class KullaniciService {
 
         //encrypted
         kullanici.setSifre(encryptor.generateSecurePassword(kullanici.getSifre()));
-        kullanici.setTcNo(encryptor.generateSecurePassword(kullanici.getTcNo()));
 
         kullanici = kullaniciRepository.save(kullanici);
 
         KullaniciDto getDto = kullaniciMapper.toDto(kullanici);
 
-        getDto.setTcNo(encryptor.gerDecryptedPassword(getDto.getTcNo()));
         getDto.setSifre(encryptor.gerDecryptedPassword(getDto.getSifre()));
 
         return getDto;
@@ -132,6 +128,10 @@ public class KullaniciService {
 
     public List<KullaniciDto> getAllVeli(){
         return kullaniciMapper.toDtoListFromEntity(kullaniciRepository.findAllByRol(Role.VELI));
+    }
+
+    public List<KullaniciDto> getAllOgrenci(){
+        return kullaniciMapper.toDtoListFromEntity(kullaniciRepository.findAllByRolAndAktifMiIsTrue(Role.OGRENCI));
     }
 
     public KullaniciDto getKullanici(GetKullaniciDto dto) {
