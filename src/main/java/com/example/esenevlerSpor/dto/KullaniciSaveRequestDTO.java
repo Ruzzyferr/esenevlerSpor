@@ -64,7 +64,6 @@ public class KullaniciSaveRequestDTO {
 
     private Lig lig;
 
-    @ManyToOne
     private Kullanici veli;
 
     private Boolean aktifMi;

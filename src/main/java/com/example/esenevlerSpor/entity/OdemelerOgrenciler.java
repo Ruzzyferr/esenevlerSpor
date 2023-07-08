@@ -3,6 +3,7 @@ package com.example.esenevlerSpor.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Entity
@@ -18,6 +19,8 @@ public class OdemelerOgrenciler {
 
     @ManyToOne
     public Kullanici ogrenci;
+
+    private Date odenmeTarihi;
 
     public boolean odendiMi = false;
 

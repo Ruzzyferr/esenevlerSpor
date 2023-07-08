@@ -46,6 +46,14 @@ public class KullaniciController {
         return new ResponseEntity<>(sifreDegisti, HttpStatus.OK);
     }
 
+    @PostMapping("/sifremiunuttum")
+    public ResponseEntity<Boolean> sifremiUnuttum (@RequestBody SifreDegistirIstek dto){
+        Boolean degistiMi = kullaniciService.sifremiUnuttum(dto);
+
+
+        return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
     @GetMapping("/activeusers")
     public ResponseEntity<List<KullaniciDto>> getAllKullanici(){
 
@@ -62,6 +70,12 @@ public class KullaniciController {
     public ResponseEntity<List<KullaniciDto>> getAllVeli(){
         return new ResponseEntity<>(kullaniciService.getAllVeli(), HttpStatus.OK);
     }
+
+    @GetMapping("/cocuklarim")
+    public ResponseEntity<List<KullaniciDto>> cocuklarim(@RequestBody GetKullaniciDto dto){
+        return new ResponseEntity<>(kullaniciService.cocuklarim(dto), HttpStatus.OK);
+    }
+
 
     @GetMapping("/getallogrenci")
     public ResponseEntity<List<KullaniciDto>> getAllOgrenci(){

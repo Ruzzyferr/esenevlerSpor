@@ -1,10 +1,7 @@
 package com.example.esenevlerSpor.controller;
 
 import com.example.esenevlerSpor.Repositories.LigRepository;
-import com.example.esenevlerSpor.dto.LigDto;
-import com.example.esenevlerSpor.dto.LigSaveRequestDto;
-import com.example.esenevlerSpor.dto.SayfaDto;
-import com.example.esenevlerSpor.dto.SayfaSaveRequestDto;
+import com.example.esenevlerSpor.dto.*;
 import com.example.esenevlerSpor.service.LigService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +28,7 @@ public class LigController {
     }
 
     @GetMapping("/getalllig")
-    public ResponseEntity<List<LigDto>> getAll(){
+    public ResponseEntity<LigWithCountDto> getAll(){
         return new ResponseEntity<>(ligService.getAll(), HttpStatus.OK);
     }
 }

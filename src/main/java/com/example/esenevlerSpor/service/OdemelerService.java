@@ -12,6 +12,8 @@ import com.example.esenevlerSpor.mapper.OdemelerMapper;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,6 +57,8 @@ public class OdemelerService {
                 findByOdemeler_IdAndOgrenci_Id(dto.getOdemeler().getId(), dto.getOgrenci().getId());
 
         gecici.setOdendiMi(true);
+        Date today = Calendar. getInstance(). getTime();
+        gecici.setOdenmeTarihi(today);
         odemelerOgrencilerRepository.save(gecici);
         return true;
     }

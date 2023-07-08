@@ -114,6 +114,24 @@ public class KullaniciService {
         return null;
     }
 
+    public Boolean sifremiUnuttum(SifreDegistirIstek dto) {
+
+        Kullanici kullanici = kullaniciRepository.findById(dto.getId());
+
+        String string = PasswordGenerator.generatePassword();
+
+        kullanici.setSifre(encryptor.generateSecurePassword(string));
+        kullaniciRepository.save(kullanici);
+
+        mailService.sendEmail(kullanici.getMail(),
+                "Esenevler Spor Kulübü",
+                "Spor Kulübüne hoş geldiniz. Mail adresiniz için atanan şifre: \n \n" +
+                        string +
+                        "\n \n Şifreniz ile sisteme giriş yapabilir ve değiştirebilirsiniz.");
+
+        return true;
+    }
+
     public List<KullaniciDto> listAllKullanici(){
 
         return kullaniciMapper.toDtoListFromEntity(kullaniciRepository.findAllByAktifMiIsTrue());
@@ -138,4 +156,10 @@ public class KullaniciService {
         return kullaniciMapper.toDto(kullaniciRepository.findById(dto.getId()));
     }
 
+
+    public List<KullaniciDto> cocuklarim(GetKullaniciDto dto) {
+
+        return kullaniciMapper.toDtoListFromEntity(kullaniciRepository.findAllByVeli_Id(dto.getId()));
+
+    }
 }

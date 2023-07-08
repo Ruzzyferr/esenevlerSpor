@@ -9,6 +9,8 @@ public class SayfaDto {
 
     private int id;
 
+    private String sayfaAdi;
+
     private String baslik;
 
     private String aciklama;

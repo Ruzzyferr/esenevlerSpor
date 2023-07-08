@@ -15,4 +15,6 @@ public class LigDto {
 
     private Date kurulmaTarihi;
 
+    private int oyuncuCount;
+
 }
