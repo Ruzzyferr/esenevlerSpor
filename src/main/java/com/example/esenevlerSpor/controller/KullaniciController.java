@@ -1,7 +1,6 @@
 package com.example.esenevlerSpor.controller;
 
 import com.example.esenevlerSpor.dto.*;
-import com.example.esenevlerSpor.enums.Role;
 import com.example.esenevlerSpor.service.AdminService;
 import com.example.esenevlerSpor.service.KullaniciService;
 import org.springframework.http.HttpStatus;
@@ -72,7 +71,7 @@ public class KullaniciController {
     }
 
     @GetMapping("/cocuklarim")
-    public ResponseEntity<List<KullaniciDto>> cocuklarim(@RequestBody GetKullaniciDto dto){
+    public ResponseEntity<List<KullaniciDto>> cocuklarim(@RequestBody IdDto dto){
         return new ResponseEntity<>(kullaniciService.cocuklarim(dto), HttpStatus.OK);
     }
 
@@ -83,7 +82,7 @@ public class KullaniciController {
     }
 
     @PostMapping("/getkullanici")
-    public ResponseEntity<KullaniciDto> getKullanici(@RequestBody GetKullaniciDto dto){
+    public ResponseEntity<KullaniciDto> getKullanici(@RequestBody IdDto dto){
         return new ResponseEntity<>(kullaniciService.getKullanici(dto), HttpStatus.OK);
     }
 

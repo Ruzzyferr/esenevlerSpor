@@ -12,4 +12,6 @@ public interface SayfaRepository extends JpaRepository<Sayfa, Integer> {
 
     List<Sayfa> findAllByAktifIsTrue();
 
+    Sayfa findById(int id);
+
 }

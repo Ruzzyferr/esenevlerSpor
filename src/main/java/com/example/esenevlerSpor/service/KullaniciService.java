@@ -152,12 +152,12 @@ public class KullaniciService {
         return kullaniciMapper.toDtoListFromEntity(kullaniciRepository.findAllByRolAndAktifMiIsTrue(Role.OGRENCI));
     }
 
-    public KullaniciDto getKullanici(GetKullaniciDto dto) {
+    public KullaniciDto getKullanici(IdDto dto) {
         return kullaniciMapper.toDto(kullaniciRepository.findById(dto.getId()));
     }
 
 
-    public List<KullaniciDto> cocuklarim(GetKullaniciDto dto) {
+    public List<KullaniciDto> cocuklarim(IdDto dto) {
 
         return kullaniciMapper.toDtoListFromEntity(kullaniciRepository.findAllByVeli_Id(dto.getId()));
 

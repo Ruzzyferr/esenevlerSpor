@@ -1,9 +1,8 @@
 package com.example.esenevlerSpor.controller;
 
 import com.example.esenevlerSpor.dto.GetDateDto;
-import com.example.esenevlerSpor.dto.GetKullaniciDto;
+import com.example.esenevlerSpor.dto.IdDto;
 import com.example.esenevlerSpor.dto.YoklamaAlDto;
-import com.example.esenevlerSpor.entity.OdemelerOgrenciler;
 import com.example.esenevlerSpor.entity.Yoklama;
 import com.example.esenevlerSpor.service.YoklamaService;
 import org.springframework.http.HttpStatus;
@@ -29,7 +28,7 @@ public class YoklamaController {
     }
 
     @GetMapping("/gettumyoklamabilgileri")
-    public ResponseEntity<List<Yoklama>> getTumYoklamaBilgileri (@RequestBody(required = false) GetKullaniciDto dto){
+    public ResponseEntity<List<Yoklama>> getTumYoklamaBilgileri (@RequestBody(required = false) IdDto dto){
         return new ResponseEntity<>(yoklamaService.getTumYoklamaOgrenciler(dto), HttpStatus.OK);
     }
 

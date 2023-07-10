@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LigRepository extends JpaRepository<Lig, Integer> {
+
+    Lig findById(int id);
+
 }

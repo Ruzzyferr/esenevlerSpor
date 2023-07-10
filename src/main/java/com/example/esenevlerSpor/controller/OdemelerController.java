@@ -3,14 +3,11 @@ package com.example.esenevlerSpor.controller;
 import com.example.esenevlerSpor.dto.*;
 import com.example.esenevlerSpor.entity.OdemelerOgrenciler;
 import com.example.esenevlerSpor.service.OdemelerService;
-import org.jetbrains.annotations.Nullable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/odemeler")
@@ -39,7 +36,7 @@ public class OdemelerController {
 
 
     @GetMapping("/gettumodemebilgileri")
-    public ResponseEntity<List<OdemelerOgrenciler>> getTumOdemeBilgileri (@RequestBody(required = false) GetKullaniciDto dto){
+    public ResponseEntity<List<OdemelerOgrenciler>> getTumOdemeBilgileri (@RequestBody(required = false) IdDto dto){
         return new ResponseEntity<>(odemelerService.getTumOdemelerOgrenciler(dto), HttpStatus.OK);
     }
 

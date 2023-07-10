@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class OdemelerService {
@@ -64,7 +63,7 @@ public class OdemelerService {
     }
 
 
-    public List<OdemelerOgrenciler> getTumOdemelerOgrenciler(GetKullaniciDto dto) {
+    public List<OdemelerOgrenciler> getTumOdemelerOgrenciler(IdDto dto) {
 
         if (dto == null) {
             List<OdemelerOgrenciler> odemelerOgrencilers = odemelerOgrencilerRepository.findAll();

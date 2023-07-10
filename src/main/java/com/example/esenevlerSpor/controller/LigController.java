@@ -31,4 +31,11 @@ public class LigController {
     public ResponseEntity<LigWithCountDto> getAll(){
         return new ResponseEntity<>(ligService.getAll(), HttpStatus.OK);
     }
+
+    @PostMapping("/ligsil")
+    public ResponseEntity<Boolean> ligSil(@RequestBody IdDto dto){
+
+        return new ResponseEntity<>(ligService.ligSil(dto), HttpStatus.OK);
+    }
+
 }

@@ -2,6 +2,7 @@ package com.example.esenevlerSpor.service;
 
 import com.example.esenevlerSpor.Repositories.KullaniciRepository;
 import com.example.esenevlerSpor.Repositories.LigRepository;
+import com.example.esenevlerSpor.dto.IdDto;
 import com.example.esenevlerSpor.dto.LigDto;
 import com.example.esenevlerSpor.dto.LigSaveRequestDto;
 import com.example.esenevlerSpor.dto.LigWithCountDto;
@@ -52,5 +53,16 @@ public class LigService {
         dto.setCount(dtos.size());
 
         return dto;
+    }
+
+    public Boolean ligSil(IdDto dto) {
+        Lig lig = ligRepository.findById(dto.getId());
+
+        if(lig == null){
+            return null;
+        }
+
+        ligRepository.delete(lig);
+        return true;
     }
 }

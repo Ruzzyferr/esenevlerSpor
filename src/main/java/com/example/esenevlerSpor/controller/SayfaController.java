@@ -1,5 +1,6 @@
 package com.example.esenevlerSpor.controller;
 
+import com.example.esenevlerSpor.dto.IdDto;
 import com.example.esenevlerSpor.dto.KullaniciDto;
 import com.example.esenevlerSpor.dto.SayfaDto;
 import com.example.esenevlerSpor.dto.SayfaSaveRequestDto;
@@ -33,6 +34,12 @@ public class SayfaController {
 
         return new ResponseEntity<>(service.listAllSayfa(), HttpStatus.OK);
 
+    }
+
+    @PostMapping("/sayfasil")
+    public ResponseEntity<Boolean> sayfaSil(@RequestBody IdDto dto){
+
+        return new ResponseEntity<>(service.sayfaSil(dto), HttpStatus.OK);
     }
 
 
